@@ -31,7 +31,7 @@ For Linux:
 
 - Clone this repository:
 ``` bash
-git clone https://github.com/MinhCao031/Web3306_22.git
+git clone https://github.com/mnquang02122001/StudentManagement-Website.git
 ```
 - Start front-end and back-end dev server:
 ``` bash

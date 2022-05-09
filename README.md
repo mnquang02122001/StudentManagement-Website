@@ -9,9 +9,9 @@ This is the repository for web programming course in our university.
 ## Prerequisite
 
 This project require some essential tools to run on your local machine:
+
 - [NodeJS](https://nodejs.org/en/) (we use v14 to develop) and npm (NodeJS package manager)
 - [MongoDB](https://www.mongodb.com/)
-
 
 **Some instruction for installing MongoDB**
 
@@ -30,14 +30,16 @@ For Linux:
 ## How to run this application?
 
 - Clone this repository:
-``` bash
+
+```bash
 git clone https://github.com/mnquang02122001/StudentManagement-Website.git
 ```
+
 - Start front-end and back-end dev server:
-``` bash
+
+```bash
 npm install
-npm start
-npm run server
+npm run app
 ```
 
 And you are ready to go!

@@ -7,9 +7,9 @@ const path = require('path');
 const cors = require('cors');
 const logger = require('morgan');
 const io = require('socket.io')(8900, {
-    cors: {
-        origin: 'http://localhost:3000'
-    }
+  cors: {
+    origin: 'http://localhost:3000',
+  },
 });
 
 const config = require('./config/config');
@@ -25,32 +25,36 @@ const notificationRoute = require('./routes/notifications');
 
 const MessageHandler = require('./socket/MessageHandler');
 
-const { db: { host, port, name } } = config;
-const dbUrl = `mongodb://${host}:${port}/${name}`;
+const {
+  db: { host, port, name },
+} = config;
+// const dbUrl = `mongodb://${host}:${port}/${name}`;
+const dbUrl =
+  'mongodb+srv://mnquang:gHXMgCPYihyBJ0qq@uet-smta.wbhsbxo.mongodb.net/?retryWrites=true&w=majority';
 const dbOptions = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 };
 const corsOptions = {
-    origin: '*',
-    credentials: true,
-    optionSuccessStatus: 200
+  origin: '*',
+  credentials: true,
+  optionSuccessStatus: 200,
 };
 const sessionOptions = {
-    store: MongoStore.create({ mongoUrl: dbUrl }),
-    secret: 'testing',
-    resave: false,
-    saveUninitialized: true
+  store: MongoStore.create({ mongoUrl: dbUrl }),
+  secret: 'testing',
+  resave: false,
+  saveUninitialized: true,
 };
 
 mongoose
-    .connect(dbUrl, dbOptions)
-    .then(() => {
-        console.log('Connection openned!');
-    })
-    .catch((err) => {
-        console.log(err);
-    });
+  .connect(dbUrl, dbOptions)
+  .then(() => {
+    console.log('Connection openned!');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const app = express();
 
@@ -73,9 +77,9 @@ app.use('/api/comments', commentRoute);
 app.use('/api/notifications', notificationRoute);
 
 app.listen(config.app.port, () => {
-    console.log(`Server connected on port ${config.app.port}`);
+  console.log(`Server connected on port ${config.app.port}`);
 });
 
 io.on('connection', (socket) => {
-    MessageHandler(io, socket);
+  MessageHandler(io, socket);
 });

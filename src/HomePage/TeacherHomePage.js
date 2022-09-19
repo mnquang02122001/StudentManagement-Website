@@ -3,12 +3,13 @@ import NavigationBar from './components/NavigationBar';
 import Sidebar from './components/Sidebar';
 import styled from 'styled-components';
 import Footer from './components/Footer';
+import Wallpaper from '../assets/wallpaper.jpg';
 const TeacherHomePage = () => {
   return (
     <>
       <NavigationBar />
       <img
-        src="https://www.schoology.com/sites/default/files/schoology-learning-management-system.jpg"
+        src={Wallpaper}
         alt="teacher"
         style={{ width: '100%', height: '100%' }}
       />
